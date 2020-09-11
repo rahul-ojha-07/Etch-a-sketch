@@ -1,42 +1,45 @@
 const box = document.querySelector(".box");
-
-function createGrid(no_of_sq=968,color='white',height='20px',width='20px'){
-    for(let i=1;i<= +no_of_sq;i++)
-    {
-        const square = document.createElement('div');
-        square.classList.add("sq");
-        square.setAttribute('style',`border:1px solid black;background-color:${color};height:${height};width:${width}`);
-        box.appendChild(square);
-    }
-}
-{createGrid();}
-
-
-const sq = document.querySelectorAll(".sq");
-sq.forEach((s)=>{
-    // s.style.background='blue';
-    s.addEventListener('mousemove',(e)=>{
-      
-        e.target.style.background='blue';});
-})
-
-//Large Grid size
-
+let gridSize=18;
+const canvasSize=600;
 
 //Clear grid
 const clear = document.querySelector(".clear");
-const clearSq = document.querySelectorAll(".sq");
-clear.addEventListener('click',()=>{sq.forEach((s)=>{s.style.background='white'})});
+clear.addEventListener('click',clearGrid);
+
+function createGrid(gridSize=18)
+{
+    console.log(gridSize); 
+   for(let i=0;i<gridSize;i++)
+   {
+       const column = document.createElement("div");
+       column.classList.add("column");
+       for(let j=0;j<gridSize;j++)
+       {
+           const square = document.createElement("div");
+           square.classList.add("square");
+           let squareSize = canvasSize/gridSize;
+           square.setAttribute('style',`width:${squareSize};height:${squareSize};border:1px solid grey`);
+           square.addEventListener('mouseenter',colorGrid);
+           column.appendChild(square);
+       }
+       box.appendChild(column);
+   }
+}
 
 
+//color grid
+function colorGrid(e)
+{
+   e.target.style.backgroundColor = 'blue';
+}
 
+function clearGrid(e)
+{
+    box.innerHTML="";
+    let input = prompt("Pick size of the grid (18 to 52):");
+    gridSize = parseInt(input);
+    createGrid(gridSize);
+}
 
+createGrid();
 
-
-// for(let i=1;i<=968;i++)
-// {
-//  const square = document.createElement('div');
-//  square.classList.add("sq");
-//  square.setAttribute('style','border:1px solid black;background-color:white;height:20px;width:20px');
-//  box.appendChild(square);
-// }
