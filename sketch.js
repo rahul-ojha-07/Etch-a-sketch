@@ -2,9 +2,9 @@ const box = document.querySelector(".box");
 let gridSize=18;
 const canvasSize=600;
 
-//Clear grid
-const clear = document.querySelector(".clear");
-clear.addEventListener('click',clearGrid);
+//Reset grid
+const reset = document.querySelector(".reset");
+reset.addEventListener('click',clearGrid);
 
 function createGrid(gridSize=18)
 {
@@ -18,7 +18,7 @@ function createGrid(gridSize=18)
            const square = document.createElement("div");
            square.classList.add("square");
            let squareSize = canvasSize/gridSize;
-           square.setAttribute('style',`width:${squareSize};height:${squareSize};border:1px solid grey`);
+           square.setAttribute('style',`width:${squareSize};height:${squareSize};border:1px solid grey;margin:0`);
            square.addEventListener('mouseenter',colorGrid);
            column.appendChild(square);
        }
@@ -26,11 +26,18 @@ function createGrid(gridSize=18)
    }
 }
 
+//Clear grid
+const clear = document.querySelector(".clear");
+clear.addEventListener('click',()=>{
+box.innerHTML="";
+createGrid(gridSize);
+});
+
 
 //color grid
 function colorGrid(e)
-{
-   e.target.style.backgroundColor = 'blue';
+{   
+    e.target.style.backgroundColor = 'blue';
 }
 
 function clearGrid(e)
