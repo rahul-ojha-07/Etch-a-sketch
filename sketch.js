@@ -1,6 +1,7 @@
 const box = document.querySelector(".box");
 let gridSize=18;
 const canvasSize=600;
+let color = 1;
 
 //Reset grid
 const reset = document.querySelector(".reset");
@@ -35,9 +36,27 @@ createGrid(gridSize);
 
 
 //color grid
+const mono = document.querySelector(".mono");
+mono.addEventListener('click',()=> color = 1);
+
+const colorful = document.querySelector(".color");
+colorful.addEventListener('click',()=>color = 2);
 function colorGrid(e)
 {   
-    e.target.style.backgroundColor = 'blue';
+    switch(color)
+    {
+        case 1 : e.target.style.backgroundColor = 'red';
+                 break;
+        case 2 : e.target.style.backgroundColor = randomColor();
+                 break;
+    }
+};
+function randomColor()
+{
+    let red = Math.ceil(Math.random()*255);
+    let blue = Math.ceil(Math.random()*255);
+    let green = Math.ceil(Math.random()*255);
+    return `rgb(${red},${blue},${green})`;
 }
 
 function clearGrid(e)
