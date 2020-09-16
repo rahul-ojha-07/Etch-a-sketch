@@ -20,7 +20,7 @@ function createGrid(gridSize=18)
            const square = document.createElement("div");
            square.classList.add("square");
            let squareSize = canvasSize/gridSize;
-           square.setAttribute('style',`width:${squareSize};height:${squareSize};border:1px solid grey;margin:0`);
+           square.setAttribute('style',`width:${squareSize};height:${squareSize};border:1px solid white;margin:0`);
            square.addEventListener('mouseenter',colorGrid); 
 
            column.appendChild(square);
