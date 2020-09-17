@@ -28,6 +28,10 @@ function createGrid(gridSize=18)
        box.appendChild(column);
    }
 }
+//Double click paint
+
+
+
 
 //Clear grid
 const clear = document.querySelector(".clear");
