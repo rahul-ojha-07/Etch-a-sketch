@@ -3,23 +3,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <h1>ETCH-A-SKETCH</h1>
+        <!-- <h2>Grid Options:</h2> -->
         <div class="container">
-            <div>
-                <h1>Etch-a-sketch</h1>
-                <h2>Grid Options:</h2>
+            <div class="menu-items">
+                <button class="info" onclick="infoPopUp()">Info</button>
+                <button class="fill-all">Fill Random</button>
                 <button class = "clear">Clear</button>
                 <button class = "color">Colourful</button>
                 <button class = "mono">Monochrome</button>
-                <button class = "dark">DarkerEverytime</button>
+                <button class = "dark">Darker</button>
                 <button class = "Reset">Reset size</button>
-            </br>
-            </hr>
+                <input type="color" id="color-picker" name="color-picker" value="#ff0000">
+                <button onclick="print()">Save Sketch</button>
             </div>
-            <div class="box"></div>
-            
+            <div class="box"></div> 
         </div>
-        <div class = "footnote">Created by <a href="https://github.com/Nidhish1407/Etch-a-sketch" target="_blank">Nidhish</a></div>
-       
+        <div class = "footnote">Created by <a href="https://github.com/Nidhish1407/Etch-a-sketch" target="_blank">Nidhish</a> <br>Mod by <a href="https://github.com/rahul-ojha-07" target="_blank">Rahul</a></div>
+        <script src="html2canvas.min.js"></script>
+        <script src="FileSaver.min.js"></script>
         <script src="sketch.js"></script>
+        
     </body>
 </html>
